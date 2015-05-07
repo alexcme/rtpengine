@@ -132,14 +132,6 @@ static void __monologue_destroy(struct call_monologue *monologue);
 
 
 
-void stream_msg_mh_src(struct packet_stream *ps, struct msghdr *mh) {
-	const struct local_intf *ifa;
-
-	ifa = ps->selected_sfd->local_intf;
-	msg_mh_src(&ifa->spec->address.addr, mh);
-}
-
-
 /* called with call->master_lock held in R */
 static int call_timer_delete_monologues(struct call *c) {
 	GSList *i;
